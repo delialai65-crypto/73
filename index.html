@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>寰宇尊榮號 AURORA ROYAL EXPRESS｜頂級觀光列車與尊榮預約</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Playfair Display, Noto Serif TC, Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0A131F',
+            midnight: '#0F1D2E',
+            forest: '#0F1C18',
+            champagne: '#D4AF37',
+            goldMuted: '#C5A059',
+            goldLight: '#F3E5AB',
+            ivory: '#F8F5EE',
+            ivoryMuted: '#D6D0C4',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', '"Noto Serif TC"', 'serif'],
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+            'luxury': '0 20px 50px rgba(0, 0, 0, 0.6)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 自訂奢華細節樣式與捲軸 */
+    body {
+      background-color: #0A131F;
+      color: #F8F5EE;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A131F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8A6D2F;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    /* 金屬漸層文字 */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA8220 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* 金屬按鈕光澤效果 */
+    .btn-champagne {
+      background: linear-gradient(135deg, #DFBD53 0%, #C5A059 50%, #A68036 100%);
+      color: #0A131F;
+      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .btn-champagne:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+      filter: brightness(1.08);
+    }
+    .btn-champagne:active {
+      transform: translateY(0);
+    }
+
+    /* 玻璃擬態奢華面板 */
+    .glass-luxury {
+      background: rgba(15, 29, 46, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(212, 175, 55, 0.32);
+    }
+
+    /* 燙金質感電子乘車證紋理 */
+    .boarding-pass-card {
+      background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 45%),
+                  linear-gradient(145deg, #102033 0%, #09111B 100%);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      position: relative;
+    }
+
+    /* 動態進場淡入 */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.6s ease-out forwards;
+    }
+
+    /* 座位按鈕互動 */
+    .seat-node {
+      transition: all 0.25s ease;
+    }
+    .seat-node:not(:disabled):hover {
+      transform: scale(1.06);
+      border-color: #F3E5AB;
+    }
+
+    /* 尊榮會籍卡片金屬質感 */
+    .card-emerald {
+      background: linear-gradient(145deg, #0D2922 0%, #071713 100%);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+    .card-platinum {
+      background: linear-gradient(145deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid rgba(226, 232, 240, 0.45);
+    }
+    .card-royal-black {
+      background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.22), transparent 50%),
+                  linear-gradient(145deg, #161412 0%, #050505 100%);
+      border: 1px solid rgba(212, 175, 55, 0.7);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+    }
+
+    /* 隱藏原生日期選擇器醜陋圖示並自訂 */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(80%) sepia(45%) saturate(500%) hue-rotate(5deg);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-champagne selection:text-obsidian">
+
+  <!-- ==================== 頂部尊榮導覽列 ==================== -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-champagne/20 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- 品牌標誌 -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border border-champagne/70 flex items-center justify-center bg-midnight group-hover:shadow-gold-glow transition">
+          <i class="fa-solid fa-crown text-champagne text-sm"></i>
+        </div>
+        <div>
+          <span class="block font-serif text-lg sm:text-xl tracking-widest text-gold-gradient font-bold">AURORA ROYAL</span>
+          <span class="block text-[11px] tracking-[0.28em] text-ivoryMuted uppercase">寰宇尊榮號觀光列車</span>
+        </div>
+      </a>
+
+      <!-- 桌面端導覽連結 -->
+      <nav class="hidden md:flex items-center gap-8 text-sm tracking-wider text-ivory/90">
+        <a href="#booking-section" class="hover:text-champagne transition">班次預約</a>
+        <a href="#suites-section" class="hover:text-champagne transition">頂級艙等</a>
+        <a href="#vip-club-section" class="hover:text-champagne transition flex items-center gap-1.5">
+          <i class="fa-solid fa-gem text-champagne text-xs"></i>
+          <span>尊榮會籍</span>
+        </a>
+        <a href="#dining-section" class="hover:text-champagne transition">米其林美饌</a>
+        <a href="#routes-section" class="hover:text-champagne transition">經典路線</a>
+      </nav>
+
+      <!-- 右側功能按鈕：會員登入/狀態、我的預約 & 行動版選單 -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- 未登入狀態按鈕 -->
+        <button id="nav-login-btn" onclick="openAuthModal('login')" class="px-3.5 sm:px-4 py-2 rounded-full border border-champagne/40 hover:border-champagne bg-obsidian/70 text-goldLight text-xs sm:text-sm tracking-wider flex items-center gap-2 transition">
+          <i class="fa-regular fa-user text-champagne"></i>
+          <span>貴賓登入</span>
+        </button>
+
+        <!-- 已登入狀態會員徽章按鈕 -->
+        <button id="nav-member-btn" onclick="openMemberCenterModal()" class="hidden px-3.5 py-1.5 rounded-full border border-champagne/60 bg-gradient-to-r from-midnight to-obsidian hover:shadow-gold-glow text-ivory text-xs sm:text-sm flex items-center gap-2.5 transition">
+          <span id="nav-tier-pill" class="px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-champagne text-obsidian">ROYAL BLACK</span>
+          <span id="nav-member-name" class="font-medium max-w-[80px] sm:max-w-[110px] truncate">貴賓</span>
+          <span id="nav-member-miles" class="hidden lg:inline text-[11px] text-champagne font-mono border-l border-champagne/30 pl-2">12,500 mi</span>
+        </button>
+
+        <button onclick="openMyBookingsModal()" class="relative px-3.5 sm:px-4 py-2 rounded-full border border-champagne/50 bg-midnight/80 hover:bg-champagne/15 text-ivory text-xs sm:text-sm tracking-wider flex items-center gap-2 transition">
+          <i class="fa-solid fa-ticket text-champagne"></i>
+          <span class="hidden sm:inline">我的預約</span>
+          <span id="booking-badge" class="hidden w-5 h-5 rounded-full bg-champagne text-obsidian font-bold text-xs flex items-center justify-center">0</span>
+        </button>
+
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-lg border border-champagne/30 text-champagne">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 行動版下拉選單 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-midnight/95 border-b border-champagne/30 px-6 py-5 space-y-4">
+      <a href="#booking-section" onclick="toggleMobileMenu()" class="block text-ivory hover:text-champagne tracking-wider">班次與座位預約</a>
+      <a href="#suites-section" onclick="toggleMobileMenu()" class="block text-ivory hover:text-champagne tracking-wider">頂級艙等介紹</a>
+      <a href="#vip-club-section" onclick="toggleMobileMenu()" class="block text-goldLight hover:text-champagne tracking-wider">尊榮會籍 VIP Club</a>
+      <a href="#dining-section" onclick="toggleMobileMenu()" class="block text-ivory hover:text-champagne tracking-wider">車上米其林美饌</a>
+      <a href="#routes-section" onclick="toggleMobileMenu()" class="block text-ivory hover:text-champagne tracking-wider">山海經典路線巡禮</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO 沉浸式奢華主視覺 ==================== -->
+  <section class="relative min-h-[92vh] flex flex-col justify-between pt-28 pb-12 overflow-hidden">
+    <!-- 背景視覺圖層（含高質感藝術列車意象與漸層遮罩） -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?auto=format&fit=crop&w=2000&q=80" 
+        onerror="this.src='https://placehold.co/1920x1080/0A131F/D4AF37?text=AURORA+ROYAL+EXPRESS'"
+        alt="寰宇尊榮號豪華列車穿越山海" 
+        class="w-full h-full object-cover object-center scale-105 opacity-45"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-obsidian/85 via-obsidian/55 to-obsidian"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-obsidian/90 via-transparent to-obsidian/80"></div>
+    </div>
+
+    <!-- 主標語內容 -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto pt-8 pb-12">
+      <div class="max-w-3xl animate-fade-up">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-champagne/40 bg-obsidian/60 backdrop-blur-sm mb-6">
+          <span class="w-2 h-2 rounded-full bg-champagne animate-pulse"></span>
+          <span class="text-xs tracking-[0.25em] text-goldLight uppercase">THE ART OF SLOW LUXURY RAIL TRAVEL</span>
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-wide text-ivory mb-6">
+          馳騁山海之間的<br />
+          <span class="text-gold-gradient">移動皇室行宮</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-ivoryMuted font-light leading-relaxed mb-8 max-w-2xl">
+          「寰宇尊榮號 AURORA ROYAL EXPRESS」融合古典新藝術美學與當代工藝，配備 270 度全景天窗觀景車廂與星級主廚隨行晚宴，為您獻上無可複製的鐵道奢華巡禮。
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#booking-section" class="btn-champagne px-8 py-3.5 rounded-full font-medium tracking-widest text-sm flex items-center gap-2">
+            <span>立即預訂尊榮席次</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#suites-section" class="px-7 py-3.5 rounded-full border border-champagne/40 hover:border-champagne bg-obsidian/50 backdrop-blur-sm text-ivory text-sm tracking-widest transition">
+            探索頂級艙等
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 懸浮玻璃擬態火車班次查詢面板 ==================== -->
+    <div id="booking-section" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full scroll-mt-24">
+      <div class="glass-luxury rounded-2xl p-6 sm:p-8 shadow-luxury">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 mb-6 border-b border-champagne/20">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-compass text-champagne text-xl"></i>
+            <h2 class="font-serif text-xl sm:text-2xl text-ivory tracking-wider">尊榮列車班次查詢</h2>
+          </div>
+          <span class="text-xs text-goldLight tracking-widest uppercase">全車系皆含迎賓香檳與專屬禮賓服務</span>
+        </div>
+
+        <form id="search-form" onsubmit="handleSearchTrains(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+          <!-- 出發站 -->
+          <div class="lg:col-span-2">
+            <label class="block text-xs text-champagne tracking-widest mb-2">出發車站</label>
+            <div class="relative">
+              <select id="origin-select" class="w-full bg-obsidian/90 border border-champagne/40 focus:border-champagne rounded-xl px-4 py-3 text-sm text-ivory outline-none appearance-none cursor-pointer">
+                <option value="台北" selected>台北站 (Taipei)</option>
+                <option value="新竹">新竹站 (Hsinchu)</option>
+                <option value="台中">台中站 (Taichung)</option>
+                <option value="台南">台南站 (Tainan)</option>
+                <option value="高雄">高雄站 (Kaohsiung)</option>
+                <option value="花蓮">花蓮站 (Hualien)</option>
+                <option value="台東">台東站 (Taitung)</option>
+              </select>
+              <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-champagne text-xs pointer-events-none"></i>
+            </div>
+          </div>
+
+          <!-- 互換按鈕 -->
+          <div class="lg:col-span-1 flex justify-center">
+            <button type="button" onclick="swapStations()" title="互換起訖站" class="w-11 h-11 rounded-full border border-champagne/40 bg-obsidian/80 hover:bg-champagne hover:text-obsidian text-champagne flex items-center justify-center transition">
+              <i class="fa-solid fa-right-left text-sm"></i>
+            </button>
+          </div>
+
+          <!-- 抵達站 -->
+          <div class="lg:col-span-2">
+            <label class="block text-xs text-champagne tracking-widest mb-2">抵達車站</label>
+            <div class="relative">
+              <select id="destination-select" class="w-full bg-obsidian/90 border border-champagne/40 focus:border-champagne rounded-xl px-4 py-3 text-sm text-ivory outline-none appearance-none cursor-pointer">
+                <option value="台北">台北站 (Taipei)</option>
+                <option value="新竹">新竹站 (Hsinchu)</option>
+                <option value="台中">台中站 (Taichung)</option>
+                <option value="台南">台南站 (Tainan)</option>
+                <option value="高雄">高雄站 (Kaohsiung)</option>
+                <option value="花蓮" selected>花蓮站 (Hualien)</option>
+                <option value="台東">台東站 (Taitung)</option>
+              </select>
+              <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-champagne text-xs pointer-events-none"></i>
+            </div>
+          </div>
+
+          <!-- 出發日期 -->
+          <div class="lg:col-span-2">
+            <label class="block text-xs text-champagne tracking-widest mb-2">出發日期</label>
+            <input type="date" id="travel-date" required class="w-full bg-obsidian/90 border border-champagne/40 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+          </div>
+
+          <!-- 艙等選擇 -->
+          <div class="lg:col-span-3">
+            <label class="block text-xs text-champagne tracking-widest mb-2">尊榮艙等</label>
+            <div class="relative">
+              <select id="cabin-select" class="w-full bg-obsidian/90 border border-champagne/40 focus:border-champagne rounded-xl px-4 py-3 text-sm text-ivory outline-none appearance-none cursor-pointer">
+                <option value="ALL">全部頂級艙等</option>
+                <option value="ROYAL_SUITE">皇家頭等獨立包廂 (1-1 配置)</option>
+                <option value="PANORAMA_BIZ">全景觀景商務艙 (1-2 配置)</option>
+                <option value="CLASSIC_PREMIER">經典尊榮寬敞座 (2-2 配置)</option>
+              </select>
+              <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-champagne text-xs pointer-events-none"></i>
+            </div>
+          </div>
+
+          <!-- 乘客人數 -->
+          <div class="lg:col-span-2">
+            <label class="block text-xs text-champagne tracking-widest mb-2">貴賓人數</label>
+            <div class="relative">
+              <select id="passenger-count" class="w-full bg-obsidian/90 border border-champagne/40 focus:border-champagne rounded-xl px-4 py-3 text-sm text-ivory outline-none appearance-none cursor-pointer">
+                <option value="1">1 位貴賓</option>
+                <option value="2" selected>2 位貴賓</option>
+                <option value="3">3 位貴賓</option>
+                <option value="4">4 位貴賓</option>
+              </select>
+              <i class="fa-solid fa-user-tie absolute right-3.5 top-1/2 -translate-y-1/2 text-champagne text-xs pointer-events-none"></i>
+            </div>
+          </div>
+
+          <!-- 搜尋按鈕（行動裝置全寬，桌面版獨立一列右側對齊） -->
+          <div class="sm:col-span-2 lg:col-span-12 pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-ivoryMuted">
+              <i class="fa-solid fa-sparkles text-champagne mr-1.5"></i>
+              提示：選擇任意起訖站皆可體驗專屬包車與跨線聯運班次查詢。
+            </p>
+            <button type="submit" class="w-full sm:w-auto btn-champagne px-10 py-3.5 rounded-xl font-bold tracking-widest text-sm flex items-center justify-center gap-2.5">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>搜尋尊榮班次</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 動態班次查詢結果區塊 ==================== -->
+  <section id="results-section" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <span class="text-xs tracking-[0.3em] text-champagne uppercase block mb-2">AVAILABLE LUXURY DEPARTURES</span>
+        <h3 id="results-heading" class="font-serif text-2xl sm:text-3xl text-ivory">精選尊榮班次時刻表</h3>
+      </div>
+      <div id="route-summary-pill" class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-midnight border border-champagne/30 text-xs sm:text-sm text-goldLight">
+        <!-- 動態填入路線摘要 -->
+      </div>
+    </div>
+
+    <!-- 班次列表容器 -->
+    <div id="train-list-container" class="space-y-6">
+      <!-- 由 JavaScript 動態渲染 -->
+    </div>
+  </section>
+
+  <!-- ==================== 互動式車廂選位與預訂工作區 (Modal / Drawer) ==================== -->
+  <div id="seat-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md overflow-y-auto">
+    <div class="min-h-screen px-4 py-8 flex items-center justify-center">
+      <div class="w-full max-w-6xl bg-midnight border border-champagne/50 rounded-3xl shadow-luxury overflow-hidden animate-fade-up">
+        <!-- 頂部標題列 -->
+        <div class="px-6 sm:px-8 py-5 bg-obsidian border-b border-champagne/30 flex items-center justify-between">
+          <div>
+            <span class="text-xs text-champagne tracking-widest uppercase block" id="modal-train-code">AR-801 寰宇星辰號</span>
+            <h3 class="font-serif text-xl sm:text-2xl text-ivory" id="modal-route-title">台北 → 花蓮｜互動式車廂選位</h3>
+          </div>
+          <button onclick="closeSeatModal()" class="w-10 h-10 rounded-full border border-champagne/40 text-ivory hover:bg-champagne hover:text-obsidian flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <!-- 主體雙欄：左側車廂座位圖 / 右側貴賓資料與結帳 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+          <!-- 左側：互動式車廂配置圖 -->
+          <div class="lg:col-span-7 p-6 sm:p-8 bg-obsidian/60 border-b lg:border-b-0 lg:border-r border-champagne/25">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+              <div>
+                <h4 class="font-serif text-lg text-goldLight" id="modal-cabin-name">皇家頭等獨立包廂 (第 1 車廂)</h4>
+                <p class="text-xs text-ivoryMuted mt-0.5" id="seat-selection-hint">請點選您偏好的席次（建議選取 2 個座位）</p>
+              </div>
+              <!-- 圖例 -->
+              <div class="flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded border border-champagne/60 bg-midnight inline-block"></span>
+                  <span class="text-ivoryMuted">可選席次</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded bg-champagne inline-block"></span>
+                  <span class="text-goldLight">已選取</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded bg-white/10 border border-white/10 inline-block"></span>
+                  <span class="text-white/40">已預訂</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 車廂外框視覺 -->
+            <div class="relative max-w-md mx-auto bg-gradient-to-b from-midnight to-obsidian border-2 border-champagne/40 rounded-[2.5rem] p-5 sm:p-6 shadow-inner">
+              <!-- 車頭指示與景觀窗標示 -->
+              <div class="text-center pb-4 mb-4 border-b border-dashed border-champagne/30">
+                <span class="inline-flex items-center gap-2 text-xs tracking-[0.25em] text-champagne uppercase">
+                  <i class="fa-solid fa-angles-up"></i> 列車行進方向・全景觀景車頭
+                </span>
+              </div>
+
+              <!-- 觀景吧台區標示 -->
+              <div class="mb-5 py-2.5 px-4 rounded-xl bg-forest/70 border border-champagne/25 flex items-center justify-between text-xs text-goldLight">
+                <span><i class="fa-solid fa-wine-glass text-champagne mr-2"></i>香檳景觀沙龍吧台</span>
+                <span class="text-[11px] text-ivoryMuted">全時段免費供應</span>
+              </div>
+
+              <!-- 動態座位網格 -->
+              <div id="seat-map-grid" class="space-y-3">
+                <!-- JavaScript 動態產生 -->
+              </div>
+
+              <!-- 車尾行李與禮賓室 -->
+              <div class="mt-5 pt-4 border-t border-dashed border-champagne/30 flex items-center justify-between text-[11px] text-ivoryMuted">
+                <span><i class="fa-solid fa-suitcase-rolling text-champagne mr-1.5"></i>專屬管家行李室</span>
+                <span><i class="fa-solid fa-restroom text-champagne mr-1.5"></i>尊榮盥洗沙龍</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右側：貴賓資訊與預訂確認 -->
+          <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between bg-midnight">
+            <div>
+              <h4 class="font-serif text-lg text-ivory pb-3 mb-5 border-b border-champagne/25 flex items-center gap-2">
+                <i class="fa-solid fa-feather-pointed text-champagne"></i>
+                <span>貴賓禮賓登記與美饌偏好</span>
+              </h4>
+
+              <!-- 已選座位標籤顯示 -->
+              <div class="mb-5 p-4 rounded-xl bg-obsidian/80 border border-champagne/30">
+                <div class="flex items-center justify-between text-xs text-ivoryMuted mb-2">
+                  <span>已選取席次號碼</span>
+                  <span id="selected-count-label" class="text-champagne font-medium">0 席</span>
+                </div>
+                <div id="selected-seats-badges" class="flex flex-wrap gap-2 min-h-[28px] items-center">
+                  <span class="text-xs text-white/40 italic">尚未點選任何座位...</span>
+                </div>
+              </div>
+
+              <!-- 貴賓表單 -->
+              <form id="booking-guest-form" onsubmit="confirmReservation(event)" class="space-y-4">
+                <div>
+                  <label class="block text-xs text-champagne tracking-wider mb-1.5">貴賓代表姓名 *</label>
+                  <input type="text" id="guest-name" required placeholder="例如：林維哲 先生 / 女士" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs text-champagne tracking-wider mb-1.5">行動電話 *</label>
+                    <input type="tel" id="guest-phone" required placeholder="0912-345-678" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+                  </div>
+                  <div>
+                    <label class="block text-xs text-champagne tracking-wider mb-1.5">電子信箱 *</label>
+                    <input type="email" id="guest-email" required placeholder="vip@aurora-rail.tw" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs text-champagne tracking-wider mb-1.5">星級隨行餐飲與迎賓禮遇</label>
+                  <select id="guest-dining" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none">
+                    <option value="主廚季節山海套餐＋法國年份香檳">主廚季節山海套餐 ＋ 法國年份香檳</option>
+                    <option value="主廚季節山海套餐＋台灣高山冷萃茶">主廚季節山海套餐 ＋ 台灣高山冷萃茶（無酒精）</option>
+                    <option value="精緻蔬食懷石料理＋香檳迎賓">精緻蔬食懷石料理 ＋ 香檳迎賓</option>
+                    <option value="無麩質專屬訂製美饌">無麩質專屬訂製美饌</option>
+                  </select>
+                </div>
+
+                <!-- 費用明細 -->
+                <div class="pt-4 mt-4 border-t border-champagne/25 space-y-2">
+                  <div class="flex justify-between text-xs text-ivoryMuted">
+                    <span>單席尊榮原價（含星級餐點與保險）</span>
+                    <span id="unit-price-display">NT$ 0</span>
+                  </div>
+                  <div id="member-discount-row" class="hidden flex justify-between text-xs text-emerald-400">
+                    <span id="member-discount-label">尊榮會籍專屬禮遇折扣</span>
+                    <span id="member-discount-amount">- NT$ 0</span>
+                  </div>
+                  <div class="flex justify-between text-xs text-ivoryMuted">
+                    <span>禮賓服務費與包廂清潔費</span>
+                    <span class="text-goldLight">尊榮禮遇全免</span>
+                  </div>
+                  <div class="flex justify-between items-baseline pt-2">
+                    <span class="text-sm text-ivory font-medium">預訂實付總額</span>
+                    <span id="total-price-display" class="font-serif text-2xl sm:text-3xl font-bold text-gold-gradient">NT$ 0</span>
+                  </div>
+                </div>
+
+                <!-- 未登入會籍提示條 -->
+                <div id="seat-modal-vip-promo" class="p-3 rounded-xl bg-obsidian/70 border border-champagne/30 flex items-center justify-between gap-2 text-xs">
+                  <span class="text-ivoryMuted"><i class="fa-solid fa-crown text-champagne mr-1.5"></i>登入尊榮會籍最高享 <strong class="text-goldLight">8 折</strong> 禮遇</span>
+                  <button type="button" onclick="openAuthModal('login')" class="text-champagne underline hover:text-goldLight whitespace-nowrap">立即登入</button>
+                </div>
+
+                <button type="submit" id="confirm-booking-btn" class="w-full btn-champagne py-3.5 rounded-xl font-bold tracking-widest text-sm mt-2 flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-crown"></i>
+                  <span>確認尊榮預訂並生成乘車證</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 數位奢華登車證 (Boarding Pass Modal) ==================== -->
+  <div id="boarding-pass-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="min-h-screen px-4 py-10 flex items-center justify-center">
+      <div class="w-full max-w-2xl animate-fade-up">
+        <!-- 頂部成功訊息 -->
+        <div class="text-center mb-6">
+          <div class="w-14 h-14 rounded-full bg-champagne/20 border border-champagne text-champagne flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
+            <i class="fa-solid fa-check text-2xl"></i>
+          </div>
+          <h3 class="font-serif text-2xl sm:text-3xl text-gold-gradient font-bold">尊榮席次預訂完成</h3>
+          <p class="text-xs sm:text-sm text-ivoryMuted mt-1">您的專屬電子乘車證已生成，登車時請出示下方燙金憑證。</p>
+        </div>
+
+        <!-- 燙金乘車證主體 -->
+        <div id="boarding-pass-content" class="boarding-pass-card rounded-3xl p-6 sm:p-8 shadow-luxury overflow-hidden">
+          <!-- 頂部品牌與代號 -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-champagne/30">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-crown text-champagne text-xl"></i>
+              <div>
+                <span class="font-serif text-lg tracking-widest text-goldLight font-bold block">AURORA ROYAL EXPRESS</span>
+                <span class="text-[10px] tracking-[0.25em] text-ivoryMuted uppercase">VIP DIGITAL BOARDING PASS</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-champagne tracking-widest block uppercase">BOOKING REFERENCE</span>
+              <span id="bp-code" class="font-mono text-lg font-bold text-ivory tracking-wider">AR-982741</span>
+            </div>
+          </div>
+
+          <!-- 起訖站與時間 -->
+          <div class="py-6 grid grid-cols-3 items-center text-center border-b border-dashed border-champagne/35">
+            <div class="text-left">
+              <span class="text-xs text-champagne block mb-1">出發車站</span>
+              <span id="bp-origin" class="font-serif text-2xl sm:text-3xl font-bold text-ivory">台北</span>
+              <span id="bp-dep-time" class="text-sm text-goldLight block mt-1 font-mono">08:30</span>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <span id="bp-train-no" class="text-xs text-champagne font-mono mb-2">AR-801</span>
+              <div class="w-full flex items-center gap-2 text-champagne">
+                <span class="h-[1px] flex-1 bg-champagne/50"></span>
+                <i class="fa-solid fa-train-subway"></i>
+                <span class="h-[1px] flex-1 bg-champagne/50"></span>
+              </div>
+              <span id="bp-duration" class="text-[11px] text-ivoryMuted mt-2">行駛 2 小時 45 分</span>
+            </div>
+
+            <div class="text-right">
+              <span class="text-xs text-champagne block mb-1">抵達車站</span>
+              <span id="bp-dest" class="font-serif text-2xl sm:text-3xl font-bold text-ivory">花蓮</span>
+              <span id="bp-arr-time" class="text-sm text-goldLight block mt-1 font-mono">11:15</span>
+            </div>
+          </div>
+
+          <!-- 貴賓與席次細節 -->
+          <div class="py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm border-b border-champagne/30">
+            <div>
+              <span class="text-[11px] text-ivoryMuted block">貴賓姓名</span>
+              <div class="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                <span id="bp-guest" class="font-medium text-ivory">林維哲</span>
+                <span id="bp-vip-badge" class="hidden px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-champagne text-obsidian">ROYAL BLACK</span>
+              </div>
+            </div>
+            <div>
+              <span class="text-[11px] text-ivoryMuted block">乘車日期</span>
+              <span id="bp-date" class="font-mono text-ivory mt-0.5 block">2026-11-28</span>
+            </div>
+            <div>
+              <span class="text-[11px] text-ivoryMuted block">尊榮艙等</span>
+              <span id="bp-cabin" class="text-goldLight font-medium mt-0.5 block">皇家頭等包廂</span>
+            </div>
+            <div>
+              <span class="text-[11px] text-ivoryMuted block">專屬席次</span>
+              <span id="bp-seats" class="font-mono font-bold text-champagne mt-0.5 block">1A, 1B</span>
+            </div>
+          </div>
+
+          <!-- 餐飲禮遇與 SVG QR Code -->
+          <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="space-y-1.5 text-center sm:text-left">
+              <span class="text-[11px] text-champagne tracking-wider uppercase block">已預約隨行美饌禮遇</span>
+              <p id="bp-dining" class="text-sm text-ivory">主廚季節山海套餐 ＋ 法國年份香檳</p>
+              <p class="text-xs text-ivoryMuted">實付總額：<span id="bp-total" class="text-goldLight font-bold">NT$ 13,600</span></p>
+            </div>
+
+            <!-- 精緻 SVG 仿 QR Code 憑證 -->
+            <div class="flex items-center gap-3 bg-ivory p-2.5 rounded-xl">
+              <svg class="w-16 h-16 text-obsidian" viewBox="0 0 64 64" fill="currentColor">
+                <rect x="4" y="4" width="18" height="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <rect x="9" y="9" width="8" height="8"/>
+                <rect x="42" y="4" width="18" height="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <rect x="47" y="9" width="8" height="8"/>
+                <rect x="4" y="42" width="18" height="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <rect x="9" y="47" width="8" height="8"/>
+                <rect x="28" y="6" width="4" height="8"/>
+                <rect x="28" y="20" width="8" height="8"/>
+                <rect x="6" y="28" width="12" height="4"/>
+                <rect x="24" y="34" width="10" height="4"/>
+                <rect x="42" y="28" width="6" height="12"/>
+                <rect x="52" y="32" width="8" height="8"/>
+                <rect x="28" y="44" width="8" height="16"/>
+                <rect x="42" y="48" width="16" height="6"/>
+              </svg>
+              <div class="pr-2 text-obsidian">
+                <span class="block text-[10px] font-bold tracking-widest uppercase">VIP GATE</span>
+                <span class="block text-xs font-mono font-bold">FAST TRACK</span>
+                <span class="block text-[10px] text-obsidian/70">禮賓通道快速通關</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底部按鈕列 -->
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <button onclick="copyBookingCode()" class="px-6 py-3 rounded-xl border border-champagne/50 bg-midnight hover:bg-champagne/20 text-ivory text-sm flex items-center gap-2 transition">
+            <i class="fa-regular fa-copy text-champagne"></i>
+            <span>複製訂位代號</span>
+          </button>
+          <button onclick="closeBoardingPassModal()" class="btn-champagne px-8 py-3 rounded-xl font-bold text-sm">
+            完成並返回首頁
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 「我的預約」訂單管理 Modal ==================== -->
+  <div id="my-bookings-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md overflow-y-auto">
+    <div class="min-h-screen px-4 py-10 flex items-center justify-center">
+      <div class="w-full max-w-3xl bg-midnight border border-champagne/50 rounded-3xl shadow-luxury overflow-hidden animate-fade-up">
+        <div class="px-6 py-5 bg-obsidian border-b border-champagne/30 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-ticket text-champagne text-xl"></i>
+            <h3 class="font-serif text-xl sm:text-2xl text-ivory">我的尊榮預約紀錄</h3>
+          </div>
+          <button onclick="closeMyBookingsModal()" class="w-10 h-10 rounded-full border border-champagne/40 text-ivory hover:bg-champagne hover:text-obsidian flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div id="my-bookings-list" class="p-6 sm:p-8 space-y-4 max-h-[65vh] overflow-y-auto">
+          <!-- 動態渲染訂單 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VIP 會員登入 / 註冊彈窗 (Auth Modal) ==================== -->
+  <div id="auth-modal" class="fixed inset-0 z-[55] hidden bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="min-h-screen px-4 py-10 flex items-center justify-center">
+      <div class="w-full max-w-md bg-midnight border border-champagne/50 rounded-3xl shadow-luxury overflow-hidden animate-fade-up">
+        <div class="px-6 py-5 bg-obsidian border-b border-champagne/30 flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-crown text-champagne"></i>
+            <h3 id="auth-modal-title" class="font-serif text-xl text-ivory">寰宇尊榮會籍登入</h3>
+          </div>
+          <button onclick="closeAuthModal()" class="w-9 h-9 rounded-full border border-champagne/40 text-ivory hover:bg-champagne hover:text-obsidian flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- 切換登入 / 註冊頁籤 -->
+          <div class="grid grid-cols-2 p-1 rounded-xl bg-obsidian border border-champagne/25">
+            <button type="button" id="tab-login-btn" onclick="switchAuthTab('login')" class="py-2 rounded-lg text-xs font-bold tracking-wider bg-champagne text-obsidian transition">貴賓登入</button>
+            <button type="button" id="tab-register-btn" onclick="switchAuthTab('register')" class="py-2 rounded-lg text-xs font-bold tracking-wider text-ivoryMuted hover:text-ivory transition">註冊新貴賓</button>
+          </div>
+
+          <!-- 一鍵體驗尊榮帳號區 -->
+          <div class="p-4 rounded-2xl bg-obsidian/90 border border-champagne/30 space-y-2.5">
+            <span class="text-[11px] text-champagne tracking-wider uppercase block"><i class="fa-solid fa-bolt mr-1"></i>一鍵快速體驗尊榮會籍</span>
+            <div class="grid grid-cols-2 gap-2.5">
+              <button type="button" onclick="quickDemoLogin('ROYAL_BLACK')" class="p-2.5 rounded-xl border border-champagne/60 bg-gradient-to-br from-neutral-900 to-black hover:border-champagne text-left transition">
+                <span class="block text-[10px] text-champagne font-bold tracking-wider">ROYAL BLACK 8折</span>
+                <span class="block text-xs text-ivory font-medium mt-0.5">陳柏翰 先生 (黑卡)</span>
+              </button>
+              <button type="button" onclick="quickDemoLogin('PLATINUM')" class="p-2.5 rounded-xl border border-slate-400/50 bg-gradient-to-br from-slate-800 to-slate-950 hover:border-white text-left transition">
+                <span class="block text-[10px] text-slate-300 font-bold tracking-wider">PLATINUM 85折</span>
+                <span class="block text-xs text-ivory font-medium mt-0.5">蘇語桐 女士 (白金)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 登入表單 -->
+          <form id="login-form" onsubmit="handleMemberLogin(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">貴賓電子信箱</label>
+              <input type="email" id="login-email" required placeholder="vip@aurora-rail.tw" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">密碼</label>
+              <input type="password" id="login-password" required placeholder="••••••••" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+            <button type="submit" class="w-full btn-champagne py-3 rounded-xl font-bold text-sm tracking-widest">登入尊榮會籍</button>
+          </form>
+
+          <!-- 註冊表單 -->
+          <form id="register-form" onsubmit="handleMemberRegister(event)" class="hidden space-y-4">
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">貴賓姓名 *</label>
+              <input type="text" id="reg-name" required placeholder="例如：張子軒 先生" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">電子信箱 *</label>
+              <input type="email" id="reg-email" required placeholder="guest@example.com" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">行動電話 *</label>
+              <input type="tel" id="reg-phone" required placeholder="0912-345-678" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">設定密碼 *</label>
+              <input type="password" id="reg-password" required placeholder="至少 6 位字元" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+            <button type="submit" class="w-full btn-champagne py-3 rounded-xl font-bold text-sm tracking-widest">免費建立貴賓帳戶（贈 1,000 哩）</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 尊榮會員中心面板 (Member Center Modal) ==================== -->
+  <div id="member-center-modal" class="fixed inset-0 z-[55] hidden bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="min-h-screen px-4 py-10 flex items-center justify-center">
+      <div class="w-full max-w-xl bg-midnight border border-champagne/50 rounded-3xl shadow-luxury overflow-hidden animate-fade-up">
+        <div class="px-6 py-5 bg-obsidian border-b border-champagne/30 flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-id-card-clip text-champagne text-lg"></i>
+            <h3 class="font-serif text-xl text-ivory">尊榮貴賓會員中心</h3>
+          </div>
+          <button onclick="closeMemberCenterModal()" class="w-9 h-9 rounded-full border border-champagne/40 text-ivory hover:bg-champagne hover:text-obsidian flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- 數位黑金/白金實體感會員卡預覽 -->
+          <div id="mc-visual-card" class="card-royal-black rounded-2xl p-6 relative overflow-hidden">
+            <div class="flex items-center justify-between mb-8">
+              <div>
+                <span class="font-serif text-sm tracking-[0.25em] text-goldLight font-bold block">AURORA ROYAL CLUB</span>
+                <span id="mc-tier-title" class="text-xs text-champagne tracking-widest uppercase mt-0.5 block">ROYAL BLACK 黑金皇家卡</span>
+              </div>
+              <i class="fa-solid fa-crown text-2xl text-champagne"></i>
+            </div>
+
+            <div class="flex items-end justify-between">
+              <div>
+                <span class="text-[10px] text-ivoryMuted tracking-widest uppercase block">MEMBER NAME</span>
+                <span id="mc-holder-name" class="font-serif text-xl text-ivory font-bold tracking-wide">陳柏翰 先生</span>
+                <span id="mc-member-no" class="font-mono text-xs text-champagne/80 block mt-1">NO. AR-VIP-880192</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] text-ivoryMuted block">會籍效期至</span>
+                <span id="mc-expiry" class="font-mono text-xs text-goldLight">2027-12-31</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 會員數據與禮遇摘要 -->
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="p-3.5 rounded-xl bg-obsidian border border-champagne/25">
+              <span class="text-[11px] text-ivoryMuted block">目前購票折扣</span>
+              <span id="mc-discount-text" class="font-serif text-lg font-bold text-champagne mt-0.5 block">8 折禮遇</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-obsidian border border-champagne/25">
+              <span class="text-[11px] text-ivoryMuted block">累積尊榮里程</span>
+              <span id="mc-miles-text" class="font-mono text-lg font-bold text-ivory mt-0.5 block">28,500</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-obsidian border border-champagne/25">
+              <span class="text-[11px] text-ivoryMuted block">貴賓室通行券</span>
+              <span id="mc-lounge-text" class="font-serif text-lg font-bold text-goldLight mt-0.5 block">無限次</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <a href="#vip-club-section" onclick="closeMemberCenterModal()" class="btn-champagne px-5 py-2.5 rounded-xl font-bold text-xs tracking-wider">
+              升級更高尊榮會籍
+            </a>
+            <button onclick="handleLogout()" class="px-5 py-2.5 rounded-xl border border-rose-500/40 text-rose-300 hover:bg-rose-500/20 text-xs transition">
+              登出貴賓帳戶
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 購買會籍結帳彈窗 (Membership Checkout Modal) ==================== -->
+  <div id="membership-checkout-modal" class="fixed inset-0 z-[55] hidden bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="min-h-screen px-4 py-10 flex items-center justify-center">
+      <div class="w-full max-w-lg bg-midnight border border-champagne/50 rounded-3xl shadow-luxury overflow-hidden animate-fade-up">
+        <div class="px-6 py-5 bg-obsidian border-b border-champagne/30 flex items-center justify-between">
+          <div>
+            <span class="text-[11px] text-champagne tracking-widest uppercase block">VIP MEMBERSHIP APPLICATION</span>
+            <h3 class="font-serif text-xl text-ivory">尊榮會籍申辦與開通</h3>
+          </div>
+          <button onclick="closeMembershipCheckout()" class="w-9 h-9 rounded-full border border-champagne/40 text-ivory hover:bg-champagne hover:text-obsidian flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form onsubmit="completeMembershipPurchase(event)" class="p-6 sm:p-8 space-y-5">
+          <!-- 所選會籍摘要 -->
+          <div class="p-4 rounded-2xl bg-obsidian border border-champagne/40 flex items-center justify-between">
+            <div>
+              <span id="checkout-tier-badge" class="text-[11px] text-champagne font-bold tracking-wider uppercase block">ROYAL BLACK</span>
+              <h4 id="checkout-tier-name" class="font-serif text-lg text-goldLight font-bold">黑金皇家卡（一年期會籍）</h4>
+              <p id="checkout-tier-perk" class="text-xs text-ivoryMuted mt-0.5">全航線購票 8 折・無限次 VIP 貴賓室・免費包廂升等</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-ivoryMuted block">年費總計</span>
+              <span id="checkout-tier-price" class="font-serif text-xl font-bold text-champagne">NT$ 88,000</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">會籍持卡人姓名 *</label>
+              <input type="text" id="mc-buy-name" required placeholder="請輸入真實姓名" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-champagne tracking-wider mb-1.5">貴賓電子信箱 *</label>
+              <input type="email" id="mc-buy-email" required placeholder="vip@aurora-rail.tw" class="w-full bg-obsidian border border-champagne/35 focus:border-champagne rounded-xl px-4 py-2.5 text-sm text-ivory outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-champagne tracking-wider mb-2">選擇尊榮付款方式</label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="cursor-pointer">
+                <input type="radio" name="pay-method" value="credit" checked class="peer sr-only" />
+                <div class="p-3 rounded-xl border border-champagne/30 bg-obsidian peer-checked:border-champagne peer-checked:bg-champagne/15 flex items-center gap-2.5 text-xs text-ivory transition">
+                  <i class="fa-regular fa-credit-card text-champagne text-base"></i>
+                  <span>頂級信用卡 / 簽帳卡</span>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="pay-method" value="applepay" class="peer sr-only" />
+                <div class="p-3 rounded-xl border border-champagne/30 bg-obsidian peer-checked:border-champagne peer-checked:bg-champagne/15 flex items-center gap-2.5 text-xs text-ivory transition">
+                  <i class="fa-brands fa-apple-pay text-champagne text-xl"></i>
+                  <span>Apple Pay 快速支付</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div id="credit-card-fields" class="grid grid-cols-3 gap-3">
+            <div class="col-span-2">
+              <label class="block text-[11px] text-ivoryMuted mb-1">信用卡號（模擬測試）</label>
+              <input type="text" value="4532 •••• •••• 8899" class="w-full bg-obsidian border border-champagne/30 rounded-xl px-3.5 py-2 text-xs font-mono text-ivory outline-none" />
+            </div>
+            <div>
+              <label class="block text-[11px] text-ivoryMuted mb-1">安全碼 CVC</label>
+              <input type="text" value="888" class="w-full bg-obsidian border border-champagne/30 rounded-xl px-3.5 py-2 text-xs font-mono text-ivory outline-none" />
+            </div>
+          </div>
+
+          <button type="submit" class="w-full btn-champagne py-3.5 rounded-xl font-bold text-sm tracking-widest flex items-center justify-center gap-2">
+            <i class="fa-solid fa-gem"></i>
+            <span>確認支付並立即開通尊榮會籍</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 頂級艙等介紹 (Suites & Cabins) ==================== -->
+  <section id="suites-section" class="py-20 bg-gradient-to-b from-obsidian via-forest/40 to-obsidian border-t border-champagne/15 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs tracking-[0.3em] text-champagne uppercase block mb-2">SUITES & CABINS</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-ivory mb-4">三大殿堂級移動艙等</h2>
+        <p class="text-sm text-ivoryMuted leading-relaxed">
+          每一節車廂皆由歐洲頂級遊艇與宮殿設計師聯手打造，採用天然胡桃木、義大利小牛皮與手工黃銅鑲嵌工藝。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 艙等 1 -->
+        <div class="group rounded-2xl overflow-hidden bg-midnight border border-champagne/30 hover:border-champagne transition duration-500 flex flex-col">
+          <div class="relative h-60 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" 
+              onerror="this.src='https://placehold.co/800x500/0F1D2E/D4AF37?text=ROYAL+SUITE'"
+              alt="皇家頭等獨立包廂" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+            />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-obsidian/85 border border-champagne/50 text-champagne text-xs tracking-wider">1-1 獨立私密包廂</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl text-goldLight mb-2">皇家頭等獨立包廂</h3>
+              <p class="text-xs text-ivoryMuted leading-relaxed mb-4">
+                擁有獨立拉門與專屬觀景大窗，配備可全平躺手工真皮沙發床、私人迷你酒吧與 24 小時一對一隨車禮賓管家。
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/20 flex items-center justify-between">
+              <span class="text-xs text-ivoryMuted">尊榮禮遇價</span>
+              <span class="font-serif text-lg text-champagne font-bold">NT$ 6,800 起 / 席</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 艙等 2 -->
+        <div class="group rounded-2xl overflow-hidden bg-midnight border border-champagne/30 hover:border-champagne transition duration-500 flex flex-col">
+          <div class="relative h-60 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80" 
+              onerror="this.src='https://placehold.co/800x500/0F1D2E/D4AF37?text=PANORAMA+BUSINESS'"
+              alt="全景觀景商務艙" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+            />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-obsidian/85 border border-champagne/50 text-champagne text-xs tracking-wider">1-2 弧形天窗配置</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl text-goldLight mb-2">全景觀景商務艙</h3>
+              <p class="text-xs text-ivoryMuted leading-relaxed mb-4">
+                配備挑高 270 度弧形抗 UV 觀景天窗與 360 度可旋轉人體工學扶手椅，讓花東縱谷與海岸線無死角盡收眼底。
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/20 flex items-center justify-between">
+              <span class="text-xs text-ivoryMuted">尊榮禮遇價</span>
+              <span class="font-serif text-lg text-champagne font-bold">NT$ 4,500 起 / 席</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 艙等 3 -->
+        <div class="group rounded-2xl overflow-hidden bg-midnight border border-champagne/30 hover:border-champagne transition duration-500 flex flex-col">
+          <div class="relative h-60 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" 
+              onerror="this.src='https://placehold.co/800x500/0F1D2E/D4AF37?text=CLASSIC+PREMIER'"
+              alt="經典尊榮寬敞座" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+            />
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-obsidian/85 border border-champagne/50 text-champagne text-xs tracking-wider">2-2 新藝術沙龍座</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl text-goldLight mb-2">經典尊榮寬敞座</h3>
+              <p class="text-xs text-ivoryMuted leading-relaxed mb-4">
+                致敬 1920 年代東方快車的復古絲絨沙龍座椅，寬敞腿部空間與黃銅閱讀燈，適合好友結伴品味下午茶與沿途風光。
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/20 flex items-center justify-between">
+              <span class="text-xs text-ivoryMuted">尊榮禮遇價</span>
+              <span class="font-serif text-lg text-champagne font-bold">NT$ 3,200 起 / 席</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 購買尊榮會員 (VIP Membership Tiers) 專屬區塊 ==================== -->
+  <section id="vip-club-section" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-champagne/15 scroll-mt-20">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-champagne/40 bg-midnight mb-4">
+        <i class="fa-solid fa-gem text-champagne text-xs"></i>
+        <span class="text-[11px] tracking-[0.25em] text-goldLight uppercase">AURORA ROYAL CLUB MEMBERSHIP</span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl text-ivory mb-4">加入寰宇尊榮會籍・享專屬購票禮遇</h2>
+      <p class="text-sm text-ivoryMuted leading-relaxed">
+        成為「AURORA ROYAL CLUB」年度尊榮會員，全航線預訂即享最高 <span class="text-champagne font-bold">8 折</span> 專屬禮遇、車站 VIP 私人貴賓室通行證與優先選位權。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      <!-- 1. 翡翠雅仕卡 EMERALD -->
+      <div class="card-emerald rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 text-[11px] font-bold tracking-widest">EMERALD TIER</span>
+            <i class="fa-solid fa-leaf text-emerald-400 text-xl"></i>
+          </div>
+          <h3 class="font-serif text-2xl text-ivory font-bold mb-1">翡翠雅仕卡</h3>
+          <p class="text-xs text-ivoryMuted mb-6">適合喜愛週末優雅鐵道小旅行的品味旅人</p>
+
+          <div class="pb-6 mb-6 border-b border-emerald-500/20">
+            <span class="text-xs text-ivoryMuted">年度會費</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-serif text-3xl font-bold text-emerald-300">NT$ 12,000</span>
+              <span class="text-xs text-ivoryMuted">/ 年</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-xs sm:text-sm text-ivory/90 mb-8">
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-emerald-400"></i>全航線列車購票享 <strong class="text-emerald-300">9 折</strong> 優惠</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-emerald-400"></i>每年 4 次車站 VIP 貴賓室禮遇</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-emerald-400"></i>開通即贈 3,000 點尊榮里程</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-emerald-400"></i>乘車日免費香檳迎賓禮</li>
+          </ul>
+        </div>
+
+        <button onclick="openMembershipCheckout('EMERALD')" class="w-full py-3.5 rounded-xl border border-emerald-400/60 bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-200 font-bold text-sm tracking-widest transition">
+          立即申辦翡翠雅仕卡
+        </button>
+      </div>
+
+      <!-- 2. 白金尊榮卡 PLATINUM -->
+      <div class="card-platinum rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="px-3 py-1 rounded-full bg-slate-300/15 border border-slate-300/40 text-slate-200 text-[11px] font-bold tracking-widest">PLATINUM TIER</span>
+            <i class="fa-solid fa-award text-slate-200 text-xl"></i>
+          </div>
+          <h3 class="font-serif text-2xl text-ivory font-bold mb-1">白金尊榮卡</h3>
+          <p class="text-xs text-ivoryMuted mb-6">為頻繁往返東西部與商務渡假的貴賓量身打造</p>
+
+          <div class="pb-6 mb-6 border-b border-slate-400/20">
+            <span class="text-xs text-ivoryMuted">年度會費</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-serif text-3xl font-bold text-slate-100">NT$ 36,000</span>
+              <span class="text-xs text-ivoryMuted">/ 年</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-xs sm:text-sm text-ivory/90 mb-8">
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-slate-300"></i>全航線列車購票享 <strong class="text-white">85 折</strong> 優惠</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-slate-300"></i>全年不限次使用車站 VIP 貴賓室</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-slate-300"></i>開通即贈 10,000 點尊榮里程</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-slate-300"></i>每年 2 張免費艙等升等券</li>
+          </ul>
+        </div>
+
+        <button onclick="openMembershipCheckout('PLATINUM')" class="w-full py-3.5 rounded-xl border border-slate-300/70 bg-slate-200/15 hover:bg-slate-200/30 text-white font-bold text-sm tracking-widest transition">
+          立即申辦白金尊榮卡
+        </button>
+      </div>
+
+      <!-- 3. 黑金皇家卡 ROYAL BLACK (主推旗艦) -->
+      <div class="card-royal-black rounded-3xl p-7 sm:p-8 flex flex-col justify-between relative transition duration-300 hover:-translate-y-1">
+        <div class="absolute -top-3.5 right-6 px-4 py-1 rounded-full bg-champagne text-obsidian font-bold text-[11px] tracking-widest shadow-gold-glow">
+          MOST PRESTIGIOUS・旗艦首選
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="px-3 py-1 rounded-full bg-champagne/20 border border-champagne text-champagne text-[11px] font-bold tracking-widest">ROYAL BLACK</span>
+            <i class="fa-solid fa-crown text-champagne text-xl"></i>
+          </div>
+          <h3 class="font-serif text-2xl text-gold-gradient font-bold mb-1">黑金皇家卡</h3>
+          <p class="text-xs text-ivoryMuted mb-6">殿堂級頂級黑卡禮遇，享全方位私人管家與最高折扣</p>
+
+          <div class="pb-6 mb-6 border-b border-champagne/30">
+            <span class="text-xs text-ivoryMuted">年度會費</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-serif text-3xl font-bold text-gold-gradient">NT$ 88,000</span>
+              <span class="text-xs text-ivoryMuted">/ 年</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-xs sm:text-sm text-ivory mb-8">
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-crown text-champagne"></i>全航線列車購票享 <strong class="text-goldLight">8 折</strong> 最高禮遇</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-crown text-champagne"></i>專屬禮賓車府邸接送至車站（每年 4 趟）</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-crown text-champagne"></i>開通即贈 30,000 點尊榮里程</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-crown text-champagne"></i>皇家獨立包廂優先保留權與隨行管家</li>
+          </ul>
+        </div>
+
+        <button onclick="openMembershipCheckout('ROYAL_BLACK')" class="w-full btn-champagne py-3.5 rounded-xl font-bold text-sm tracking-widest">
+          立即申辦黑金皇家卡
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 車上米其林美饌精選 (Michelin Dining) ==================== -->
+  <section id="dining-section" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-champagne/15 scroll-mt-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6 space-y-6">
+        <span class="text-xs tracking-[0.3em] text-champagne uppercase block">GASTRONOMY ON RAILS</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-ivory leading-snug">
+          星級主廚隨行餐車：<br />
+          <span class="text-gold-gradient">把台灣風土化作舌尖藝術</span>
+        </h2>
+        <p class="text-sm text-ivoryMuted leading-relaxed">
+          寰宇尊榮號特邀米其林二星顧問團隊設計季節菜單，嚴選宜蘭龜山島現流螯蝦、台東池上冠軍越光米與南投高山烏龍，於列車專屬水晶吊燈餐車現點現烹。
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-xl bg-midnight/80 border border-champagne/25">
+            <i class="fa-solid fa-champagne-glasses text-champagne text-lg mb-2"></i>
+            <h4 class="font-serif text-base text-goldLight mb-1">法國年份香檳迎賓</h4>
+            <p class="text-xs text-ivoryMuted">登車即享侍酒師精選 Grand Cru 香檳與手工松露小點。</p>
+          </div>
+          <div class="p-4 rounded-xl bg-midnight/80 border border-champagne/25">
+            <i class="fa-solid fa-utensils text-champagne text-lg mb-2"></i>
+            <h4 class="font-serif text-base text-goldLight mb-1">五道式山海晚宴</h4>
+            <p class="text-xs text-ivoryMuted">隨列車行經地域變換菜色，結合在地小農頂級食材。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="relative rounded-3xl overflow-hidden border border-champagne/40 shadow-luxury">
+          <img 
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80" 
+            onerror="this.src='https://placehold.co/900x650/0F1D2E/D4AF37?text=MICHELIN+DINING+CAR'"
+            alt="車上米其林星級饗宴" 
+            class="w-full h-80 sm:h-96 object-cover"
+          />
+          <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-obsidian via-obsidian/85 to-transparent">
+            <span class="text-xs text-champagne tracking-widest uppercase">L'ÉTOILE DINING CAR</span>
+            <p class="font-serif text-lg text-ivory mt-1">「星辰餐車」每日限量 36 席全景窗畔餐桌</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 經典路線巡禮 ==================== -->
+  <section id="routes-section" class="py-16 bg-midnight/50 border-t border-champagne/15 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs tracking-[0.3em] text-champagne uppercase block mb-2">SIGNATURE JOURNEYS</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-ivory">一鍵套用人氣奢華路線</h2>
+        </div>
+        <span class="text-xs text-ivoryMuted">點擊任一路線卡片，自動帶入查詢表單</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <button onclick="quickSelectRoute('台北', '花蓮')" class="text-left p-6 rounded-2xl bg-obsidian border border-champagne/30 hover:border-champagne transition group">
+          <div class="flex items-center justify-between text-xs text-champagne mb-3">
+            <span>東岸太平洋蔚藍線</span>
+            <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-0.5 transition"></i>
+          </div>
+          <h4 class="font-serif text-xl text-ivory mb-2">台北 ⇄ 花蓮</h4>
+          <p class="text-xs text-ivoryMuted">飽覽龜山島日出與清水斷崖懸崖海景，最受歡迎的週末頂級微旅行。</p>
+        </button>
+
+        <button onclick="quickSelectRoute('台北', '台東')" class="text-left p-6 rounded-2xl bg-obsidian border border-champagne/30 hover:border-champagne transition group">
+          <div class="flex items-center justify-between text-xs text-champagne mb-3">
+            <span>花東縱谷黃金稻浪線</span>
+            <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-0.5 transition"></i>
+          </div>
+          <h4 class="font-serif text-xl text-ivory mb-2">台北 ⇄ 台東</h4>
+          <p class="text-xs text-ivoryMuted">穿越中央山脈與海岸山脈之間，享受完整五道式米其林午餐與下午茶。</p>
+        </button>
+
+        <button onclick="quickSelectRoute('台中', '高雄')" class="text-left p-6 rounded-2xl bg-obsidian border border-champagne/30 hover:border-champagne transition group">
+          <div class="flex items-center justify-between text-xs text-champagne mb-3">
+            <span>南國夕陽港都尊榮線</span>
+            <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-0.5 transition"></i>
+          </div>
+          <h4 class="font-serif text-xl text-ivory mb-2">台中 ⇄ 高雄</h4>
+          <p class="text-xs text-ivoryMuted">穿梭嘉南平原與西海岸夕照，直達高雄亞洲新灣區私人遊艇碼頭接駁。</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 頁尾 Footer ==================== -->
+  <footer class="bg-obsidian border-t border-champagne/25 py-12 text-xs text-ivoryMuted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-crown text-champagne text-lg"></i>
+        <span class="font-serif text-base text-goldLight tracking-widest">AURORA ROYAL EXPRESS</span>
+      </div>
+      <p class="text-center sm:text-left">
+        © 2026 寰宇尊榮號頂級觀光鐵道股份有限公司版權所有．24 小時貴賓禮賓專線：0800-888-999
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== 奢華浮動提示訊息 Toast ==================== -->
+  <div id="luxury-toast" class="fixed bottom-6 right-6 z-[60] hidden max-w-sm bg-midnight border border-champagne text-ivory px-5 py-4 rounded-2xl shadow-luxury flex items-center gap-3 animate-fade-up">
+    <i id="toast-icon" class="fa-solid fa-circle-info text-champagne text-lg"></i>
+    <span id="toast-message" class="text-xs sm:text-sm leading-relaxed">提示訊息</span>
+  </div>
+
+  <!-- ==================== 互動邏輯與狀態管理 JavaScript ==================== -->
+  <script>
+    // 1. 列車班次基礎資料庫（支援任意起訖站動態生成時間與票價）
+    const TRAIN_TEMPLATES = [
+      {
+        code: 'AR-801',
+        name: '寰宇晨曦號',
+        depHour: 8,
+        depMin: '30',
+        cabinType: 'ROYAL_SUITE',
+        cabinLabel: '皇家頭等獨立包廂',
+        layout: '1-1',
+        basePrice: 6800,
+        tags: ['米其林星級早餐', '1-1 獨立包廂', '專屬管家服務'],
+        occupiedSeats: ['1B', '3A', '4B']
+      },
+      {
+        code: 'AR-805',
+        name: '山海全景號',
+        depHour: 10,
+        depMin: '45',
+        cabinType: 'PANORAMA_BIZ',
+        cabinLabel: '全景觀景商務艙',
+        layout: '1-2',
+        basePrice: 4500,
+        tags: ['270° 全景天窗', '香檳無限暢飲', '午間山海饗宴'],
+        occupiedSeats: ['1A', '2C', '3B', '4C', '5A']
+      },
+      {
+        code: 'AR-809',
+        name: '帝國星辰號',
+        depHour: 14,
+        depMin: '20',
+        cabinType: 'ROYAL_SUITE',
+        cabinLabel: '皇家頭等獨立包廂',
+        layout: '1-1',
+        basePrice: 7200,
+        tags: ['英式三層午茶', '法國年份香檳', '現場大提琴演奏'],
+        occupiedSeats: ['2A', '5B']
+      },
+      {
+        code: 'AR-815',
+        name: '東方經典號',
+        depHour: 17,
+        depMin: '10',
+        cabinType: 'CLASSIC_PREMIER',
+        cabinLabel: '經典尊榮寬敞座',
+        layout: '2-2',
+        basePrice: 3200,
+        tags: ['復古絲絨沙龍', '星級主廚晚宴', '日落觀景車廂'],
+        occupiedSeats: ['1A', '1B', '2D', '3C', '4A', '4B']
+      }
+    ];
+
+    // 站點順序表（用於估算合理行車時間）
+    const STATION_ORDER = {
+      '台北': 1,
+      '新竹': 2,
+      '台中': 3,
+      '台南': 4,
+      '高雄': 5,
+      '台東': 7,
+      '花蓮': 8
+    };
+
+    // VIP 會籍等級定義
+    const MEMBERSHIP_TIERS = {
+      STANDARD: {
+        code: 'STANDARD',
+        badge: 'GUEST VIP',
+        name: '一般註冊貴賓',
+        discountRate: 1.0,
+        discountLabel: '無折扣',
+        price: 0,
+        bonusMiles: 1000,
+        loungeText: '單次付費',
+        perkSummary: '累積乘車里程與線上快速訂位禮遇'
+      },
+      EMERALD: {
+        code: 'EMERALD',
+        badge: 'EMERALD',
+        name: '翡翠雅仕卡',
+        discountRate: 0.90,
+        discountLabel: '9 折禮遇',
+        price: 12000,
+        bonusMiles: 3000,
+        loungeText: '4 次 / 年',
+        perkSummary: '全航線購票 9 折・每年 4 次 VIP 貴賓室'
+      },
+      PLATINUM: {
+        code: 'PLATINUM',
+        badge: 'PLATINUM',
+        name: '白金尊榮卡',
+        discountRate: 0.85,
+        discountLabel: '85 折禮遇',
+        price: 36000,
+        bonusMiles: 10000,
+        loungeText: '無限次',
+        perkSummary: '全航線購票 85 折・無限次 VIP 貴賓室・每年 2 張升等券'
+      },
+      ROYAL_BLACK: {
+        code: 'ROYAL_BLACK',
+        badge: 'ROYAL BLACK',
+        name: '黑金皇家卡',
+        discountRate: 0.80,
+        discountLabel: '8 折禮遇',
+        price: 88000,
+        bonusMiles: 30000,
+        loungeText: '無限次＋專車',
+        perkSummary: '全航線購票 8 折・專屬府邸禮賓車接送・皇家包廂優先權'
+      }
+    };
+
+    // 全域狀態
+    let currentSearch = {
+      origin: '台北',
+      destination: '花蓮',
+      date: '',
+      cabin: 'ALL',
+      passengers: 2
+    };
+
+    let activeTrain = null;
+    let selectedSeats = [];
+    let myBookings = [];
+    let currentUser = null;
+    let pendingCheckoutTier = null;
+
+    // 2. 初始化設定
+    window.addEventListener('DOMContentLoaded', () => {
+      // 設定預設日期為 3 天後
+      const dateInput = document.getElementById('travel-date');
+      const futureDate = new Date();
+      futureDate.setDate(futureDate.getDate() + 3);
+      const yyyy = futureDate.getFullYear();
+      const mm = String(futureDate.getMonth() + 1).padStart(2, '0');
+      const dd = String(futureDate.getDate()).padStart(2, '0');
+      dateInput.value = `${yyyy}-${mm}-${dd}`;
+      dateInput.min = new Date().toISOString().split('T')[0];
+
+      currentSearch.date = dateInput.value;
+
+      // 載入已儲存的預約紀錄與會員狀態
+      try {
+        const saved = localStorage.getItem('aurora_royal_bookings');
+        if (saved) {
+          myBookings = JSON.parse(saved);
+          updateBookingBadge();
+        }
+        const savedUser = localStorage.getItem('aurora_royal_user');
+        if (savedUser) {
+          currentUser = JSON.parse(savedUser);
+          updateMemberNavbarUI();
+        }
+      } catch (e) {
+        console.warn('無法讀取本機紀錄', e);
+      }
+
+      // 初始渲染班次列表
+      renderTrainResults();
+    });
+
+    // 3. 提示訊息框 (取代 alert)
+    let toastTimer = null;
+    function showToast(message, type = 'info') {
+      const toast = document.getElementById('luxury-toast');
+      const msgEl = document.getElementById('toast-message');
+      const iconEl = document.getElementById('toast-icon');
+
+      msgEl.textContent = message;
+      if (type === 'error') {
+        iconEl.className = 'fa-solid fa-circle-exclamation text-rose-400 text-lg';
+      } else if (type === 'success') {
+        iconEl.className = 'fa-solid fa-crown text-champagne text-lg';
+      } else {
+        iconEl.className = 'fa-solid fa-circle-info text-champagne text-lg';
+      }
+
+      toast.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3600);
+    }
+
+    // 4. 起訖站互換與快速帶入
+    function swapStations() {
+      const originEl = document.getElementById('origin-select');
+      const destEl = document.getElementById('destination-select');
+      const temp = originEl.value;
+      originEl.value = destEl.value;
+      destEl.value = temp;
+      showToast(`已切換路線為：${originEl.value} → ${destEl.value}`);
+    }
+
+    function quickSelectRoute(origin, dest) {
+      document.getElementById('origin-select').value = origin;
+      document.getElementById('destination-select').value = dest;
+      document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        handleSearchTrains(new Event('submit'));
+      }, 350);
+    }
+
+    // 5. 處理班次查詢
+    function handleSearchTrains(e) {
+      e.preventDefault();
+      const origin = document.getElementById('origin-select').value;
+      const destination = document.getElementById('destination-select').value;
+      const date = document.getElementById('travel-date').value;
+      const cabin = document.getElementById('cabin-select').value;
+      const passengers = parseInt(document.getElementById('passenger-count').value, 10);
+
+      if (origin === destination) {
+        showToast('出發車站與抵達車站不可相同，請重新選擇。', 'error');
+        return;
+      }
+
+      currentSearch = { origin, destination, date, cabin, passengers };
+      renderTrainResults();
+      document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+      showToast(`已為您搜尋 ${date} 從 ${origin} 前往 ${destination} 的尊榮列車。`, 'success');
+    }
+
+    // 計算站間行駛時間與票價係數
+    function calculateJourneyMeta(origin, destination) {
+      const diff = Math.abs((STATION_ORDER[origin] || 1) - (STATION_ORDER[destination] || 5));
+      const totalMinutes = Math.max(95, diff * 42 + 35);
+      const hours = Math.floor(totalMinutes / 60);
+      const mins = totalMinutes % 60;
+      const priceFactor = Math.max(0.85, 0.75 + diff * 0.12);
+      return {
+        totalMinutes,
+        durationText: `${hours} 小時 ${mins} 分`,
+        priceFactor
+      };
+    }
+
+    // 6. 渲染符合條件的豪華班次卡片
+    function renderTrainResults() {
+      const container = document.getElementById('train-list-container');
+      const summaryPill = document.getElementById('route-summary-pill');
+      const { origin, destination, date, cabin, passengers } = currentSearch;
+
+      summaryPill.innerHTML = `
+        <i class="fa-solid fa-route text-champagne"></i>
+        <span>${origin} → ${destination}</span>
+        <span class="text-champagne/40">|</span>
+        <span>${date}</span>
+        <span class="text-champagne/40">|</span>
+        <span>${passengers} 位貴賓</span>
+      `;
+
+      const filtered = TRAIN_TEMPLATES.filter(t => cabin === 'ALL' || t.cabinType === cabin);
+      const journeyMeta = calculateJourneyMeta(origin, destination);
+
+      container.innerHTML = filtered.map((train, index) => {
+        // 計算發車與抵達時間
+        const depTime = `${String(train.depHour).padStart(2, '0')}:${train.depMin}`;
+        const depTotalMins = train.depHour * 60 + parseInt(train.depMin, 10);
+        const arrTotalMins = (depTotalMins + journeyMeta.totalMinutes) % (24 * 60);
+        const arrHour = String(Math.floor(arrTotalMins / 60)).padStart(2, '0');
+        const arrMin = String(arrTotalMins % 60).padStart(2, '0');
+        const arrTime = `${arrHour}:${arrMin}`;
+
+        // 計算票價與剩餘席次
+        const price = Math.round((train.basePrice * journeyMeta.priceFactor) / 100) * 100;
+        const totalSeatsCount = train.layout === '1-1' ? 12 : (train.layout === '1-2' ? 18 : 24);
+        const remainingSeats = totalSeatsCount - train.occupiedSeats.length;
+
+        return `
+          <div class="glass-luxury rounded-2xl p-6 sm:p-8 hover:border-champagne transition duration-300 animate-fade-up" style="animation-delay: ${index * 80}ms">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              
+              <!-- 車次與艙等徽章 -->
+              <div class="lg:col-span-3 space-y-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="px-3 py-1 rounded-md bg-champagne text-obsidian font-mono font-bold text-xs tracking-wider">${train.code}</span>
+                  <span class="font-serif text-lg text-goldLight font-semibold">${train.name}</span>
+                </div>
+                <div class="text-xs text-ivoryMuted flex items-center gap-2">
+                  <i class="fa-solid fa-couch text-champagne"></i>
+                  <span>${train.cabinLabel} (${train.layout} 配置)</span>
+                </div>
+              </div>
+
+              <!-- 時間軸 -->
+              <div class="lg:col-span-4 flex items-center justify-between gap-3 bg-obsidian/60 px-5 py-4 rounded-xl border border-champagne/20">
+                <div>
+                  <span class="font-mono text-2xl font-bold text-ivory block">${depTime}</span>
+                  <span class="text-xs text-ivoryMuted">${origin}站</span>
+                </div>
+
+                <div class="flex-1 flex flex-col items-center px-2">
+                  <span class="text-[11px] text-champagne mb-1">${journeyMeta.durationText}</span>
+                  <div class="w-full flex items-center gap-1.5 text-champagne/70">
+                    <span class="w-2 h-2 rounded-full border border-champagne"></span>
+                    <span class="h-[1px] flex-1 bg-gradient-to-r from-champagne/40 via-champagne to-champagne/40"></span>
+                    <i class="fa-solid fa-train text-xs text-champagne"></i>
+                  </div>
+                  <span class="text-[10px] text-ivoryMuted mt-1">直達尊榮專列</span>
+                </div>
+
+                <div class="text-right">
+                  <span class="font-mono text-2xl font-bold text-ivory block">${arrTime}</span>
+                  <span class="text-xs text-ivoryMuted">${destination}站</span>
+                </div>
+              </div>
+
+              <!-- 特色標籤 -->
+              <div class="lg:col-span-3 flex flex-wrap gap-2">
+                ${train.tags.map(tag => `
+                  <span class="px-3 py-1 rounded-full bg-forest/80 border border-champagne/30 text-goldLight text-xs">
+                    ${tag}
+                  </span>
+                `).join('')}
+              </div>
+
+              <!-- 票價與選擇席次按鈕 -->
+              <div class="lg:col-span-2 flex sm:flex-row lg:flex-col items-center lg:items-end justify-between gap-3 pt-4 lg:pt-0 border-t lg:border-t-0 border-champagne/20">
+                <div class="lg:text-right">
+                  <span class="text-[11px] text-ivoryMuted block">每席尊榮價</span>
+                  <span class="font-serif text-2xl font-bold text-gold-gradient">NT$ ${price.toLocaleString()}</span>
+                  <span class="text-[11px] text-emerald-400 block mt-0.5">尚餘 ${remainingSeats} 席</span>
+                </div>
+
+                <button 
+                  onclick='openSeatModal(${JSON.stringify({
+                    ...train,
+                    depTime,
+                    arrTime,
+                    durationText: journeyMeta.durationText,
+                    computedPrice: price
+                  })})'
+                  class="btn-champagne px-6 py-3 rounded-xl font-bold text-xs sm:text-sm tracking-wider whitespace-nowrap">
+                  選擇席次
+                </button>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 7. 開啟互動式車廂選位 Modal
+    function openSeatModal(trainData) {
+      activeTrain = trainData;
+      selectedSeats = [];
+
+      document.getElementById('modal-train-code').textContent = `${trainData.code} ${trainData.name}・${currentSearch.date}`;
+      document.getElementById('modal-route-title').textContent = `${currentSearch.origin} (${trainData.depTime}) → ${currentSearch.destination} (${trainData.arrTime})`;
+      document.getElementById('modal-cabin-name').textContent = `${trainData.cabinLabel}（${trainData.layout} 奢華配置）`;
+      document.getElementById('seat-selection-hint').textContent = `您設定了 ${currentSearch.passengers} 位貴賓，請點擊下方座位圖選取席次（可自由增減）`;
+      document.getElementById('unit-price-display').textContent = `NT$ ${trainData.computedPrice.toLocaleString()}`;
+
+      // 若已登入會員，自動帶入姓名、電話、信箱並隱藏促銷條
+      const promoBanner = document.getElementById('seat-modal-vip-promo');
+      if (currentUser) {
+        document.getElementById('guest-name').value = currentUser.name || '';
+        document.getElementById('guest-phone').value = currentUser.phone || '';
+        document.getElementById('guest-email').value = currentUser.email || '';
+        promoBanner.classList.add('hidden');
+      } else {
+        promoBanner.classList.remove('hidden');
+      }
+
+      renderSeatMap();
+      updateSelectedSummary();
+
+      document.getElementById('seat-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSeatModal() {
+      document.getElementById('seat-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // 8. 渲染不同艙等配置的互動式座位圖
+    function renderSeatMap() {
+      const grid = document.getElementById('seat-map-grid');
+      const rows = 6;
+      let html = '';
+
+      for (let r = 1; r <= rows; r++) {
+        if (activeTrain.layout === '1-1') {
+          // 皇家頭等獨立包廂：左側 1 席 (A) + 寬敞中央走道 + 右側 1 席 (B)
+          html += `
+            <div class="grid grid-cols-11 items-center gap-2">
+              <div class="col-span-4">${createSeatButton(`${r}A`, '海景單人包廂')}</div>
+              <div class="col-span-3 text-center text-[10px] text-champagne/50 font-mono">第 ${r} 排</div>
+              <div class="col-span-4">${createSeatButton(`${r}B`, '山景單人包廂')}</div>
+            </div>
+          `;
+        } else if (activeTrain.layout === '1-2') {
+          // 全景觀景商務艙：左側 1 席 (A) + 走道 + 右側 2 席 (B, C)
+          html += `
+            <div class="grid grid-cols-11 items-center gap-2">
+              <div class="col-span-3">${createSeatButton(`${r}A`, '單人靠窗')}</div>
+              <div class="col-span-2 text-center text-[10px] text-champagne/50 font-mono">${r}</div>
+              <div class="col-span-3">${createSeatButton(`${r}B`, '雙人走道')}</div>
+              <div class="col-span-3">${createSeatButton(`${r}C`, '雙人靠窗')}</div>
+            </div>
+          `;
+        } else {
+          // 經典尊榮寬敞座：左側 2 席 (A, B) + 走道 + 右側 2 席 (C, D)
+          html += `
+            <div class="grid grid-cols-11 items-center gap-1.5">
+              <div class="col-span-2">${createSeatButton(`${r}A`, '靠窗')}</div>
+              <div class="col-span-2">${createSeatButton(`${r}B`, '走道')}</div>
+              <div class="col-span-3 text-center text-[10px] text-champagne/50 font-mono">第 ${r} 排</div>
+              <div class="col-span-2">${createSeatButton(`${r}C`, '走道')}</div>
+              <div class="col-span-2">${createSeatButton(`${r}D`, '靠窗')}</div>
+            </div>
+          `;
+        }
+      }
+
+      grid.innerHTML = html;
+    }
+
+    function createSeatButton(seatId, subLabel) {
+      const isOccupied = activeTrain.occupiedSeats.includes(seatId);
+      const isSelected = selectedSeats.includes(seatId);
+
+      if (isOccupied) {
+        return `
+          <button type="button" disabled class="w-full py-2.5 px-1 rounded-xl bg-white/5 border border-white/10 text-white/30 flex flex-col items-center justify-center cursor-not-allowed">
+            <span class="font-mono text-xs font-bold">${seatId}</span>
+            <span class="text-[9px]">已售</span>
+          </button>
+        `;
+      }
+
+      const activeClass = isSelected
+        ? 'bg-champagne text-obsidian border-champagne shadow-gold-glow font-bold'
+        : 'bg-midnight text-ivory border-champagne/50 hover:bg-champagne/15';
+
+      return `
+        <button type="button" onclick="toggleSeat('${seatId}')" class="seat-node w-full py-2.5 px-1 rounded-xl border ${activeClass} flex flex-col items-center justify-center cursor-pointer">
+          <span class="font-mono text-xs font-bold">${seatId}</span>
+          <span class="text-[9px] opacity-80">${isSelected ? '已選' : subLabel}</span>
+        </button>
+      `;
+    }
+
+    // 切換選取或取消座位
+    function toggleSeat(seatId) {
+      const idx = selectedSeats.indexOf(seatId);
+      if (idx > -1) {
+        selectedSeats.splice(idx, 1);
+      } else {
+        selectedSeats.push(seatId);
+        selectedSeats.sort();
+      }
+      renderSeatMap();
+      updateSelectedSummary();
+    }
+
+    // 更新已選座位標籤與總金額（整合會員會籍折扣）
+    function updateSelectedSummary() {
+      const countLabel = document.getElementById('selected-count-label');
+      const badgesContainer = document.getElementById('selected-seats-badges');
+      const totalDisplay = document.getElementById('total-price-display');
+      const discountRow = document.getElementById('member-discount-row');
+      const discountLabel = document.getElementById('member-discount-label');
+      const discountAmountEl = document.getElementById('member-discount-amount');
+
+      countLabel.textContent = `${selectedSeats.length} 席`;
+
+      if (selectedSeats.length === 0) {
+        badgesContainer.innerHTML = `<span class="text-xs text-white/40 italic">尚未點選任何座位...</span>`;
+      } else {
+        badgesContainer.innerHTML = selectedSeats.map(seat => `
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-champagne/20 border border-champagne text-goldLight font-mono text-xs font-bold">
+            ${seat}
+            <button type="button" onclick="toggleSeat('${seat}')" class="hover:text-white"><i class="fa-solid fa-xmark text-[10px]"></i></button>
+          </span>
+        `).join('');
+      }
+
+      const rawTotal = selectedSeats.length * activeTrain.computedPrice;
+      const tierInfo = currentUser ? (MEMBERSHIP_TIERS[currentUser.tier] || MEMBERSHIP_TIERS.STANDARD) : MEMBERSHIP_TIERS.STANDARD;
+
+      if (currentUser && tierInfo.discountRate < 1.0) {
+        const finalTotal = Math.round(rawTotal * tierInfo.discountRate);
+        const savedMoney = rawTotal - finalTotal;
+        discountRow.classList.remove('hidden');
+        discountLabel.textContent = `${tierInfo.name} (${tierInfo.discountLabel})`;
+        discountAmountEl.textContent = `- NT$ ${savedMoney.toLocaleString()}`;
+        totalDisplay.textContent = `NT$ ${finalTotal.toLocaleString()}`;
+      } else {
+        discountRow.classList.add('hidden');
+        totalDisplay.textContent = `NT$ ${rawTotal.toLocaleString()}`;
+      }
+    }
+
+    // 9. 確認尊榮預訂並生成電子乘車證
+    function confirmReservation(e) {
+      e.preventDefault();
+
+      if (selectedSeats.length === 0) {
+        showToast('請至少在左側車廂圖點選 1 個尊榮席次！', 'error');
+        return;
+      }
+
+      const guestName = document.getElementById('guest-name').value.trim();
+      const guestPhone = document.getElementById('guest-phone').value.trim();
+      const guestEmail = document.getElementById('guest-email').value.trim();
+      const guestDining = document.getElementById('guest-dining').value;
+
+      const bookingRef = 'AR-' + Math.floor(100000 + Math.random() * 900000);
+      const rawTotal = selectedSeats.length * activeTrain.computedPrice;
+      const tierInfo = currentUser ? (MEMBERSHIP_TIERS[currentUser.tier] || MEMBERSHIP_TIERS.STANDARD) : MEMBERSHIP_TIERS.STANDARD;
+      const totalPrice = Math.round(rawTotal * tierInfo.discountRate);
+
+      const newBooking = {
+        id: bookingRef,
+        trainCode: activeTrain.code,
+        trainName: activeTrain.name,
+        cabinLabel: activeTrain.cabinLabel,
+        origin: currentSearch.origin,
+        destination: currentSearch.destination,
+        date: currentSearch.date,
+        depTime: activeTrain.depTime,
+        arrTime: activeTrain.arrTime,
+        duration: activeTrain.durationText,
+        seats: [...selectedSeats],
+        guestName,
+        guestPhone,
+        guestEmail,
+        dining: guestDining,
+        totalPrice,
+        vipTierBadge: currentUser ? tierInfo.badge : null
+      };
+
+      // 若已登入會員，累積此次行程里程點數
+      if (currentUser) {
+        const earnedMiles = Math.round(totalPrice / 10);
+        currentUser.miles = (currentUser.miles || 0) + earnedMiles;
+        saveUserToStorage();
+        updateMemberNavbarUI();
+      }
+
+      // 將已訂座位標記為不可再選
+      const templateObj = TRAIN_TEMPLATES.find(t => t.code === activeTrain.code);
+      if (templateObj) {
+        templateObj.occupiedSeats.push(...selectedSeats);
+      }
+
+      // 儲存至訂單陣列與 LocalStorage
+      myBookings.unshift(newBooking);
+      try {
+        localStorage.setItem('aurora_royal_bookings', JSON.stringify(myBookings));
+      } catch (err) {}
+
+      updateBookingBadge();
+      renderTrainResults();
+      closeSeatModal();
+      openBoardingPassModal(newBooking);
+    }
+
+    // 10. 數位電子乘車證檢視與複製代號
+    function openBoardingPassModal(booking) {
+      document.getElementById('bp-code').textContent = booking.id;
+      document.getElementById('bp-origin').textContent = booking.origin;
+      document.getElementById('bp-dest').textContent = booking.destination;
+      document.getElementById('bp-dep-time').textContent = booking.depTime;
+      document.getElementById('bp-arr-time').textContent = booking.arrTime;
+      document.getElementById('bp-train-no').textContent = `${booking.trainCode} ${booking.trainName}`;
+      document.getElementById('bp-duration').textContent = `行駛 ${booking.duration}`;
+      document.getElementById('bp-guest').textContent = booking.guestName;
+      document.getElementById('bp-date').textContent = booking.date;
+      document.getElementById('bp-cabin').textContent = booking.cabinLabel;
+      document.getElementById('bp-seats').textContent = booking.seats.join(', ');
+      document.getElementById('bp-dining').textContent = booking.dining;
+      document.getElementById('bp-total').textContent = `NT$ ${booking.totalPrice.toLocaleString()}`;
+
+      const vipBadgeEl = document.getElementById('bp-vip-badge');
+      if (booking.vipTierBadge) {
+        vipBadgeEl.textContent = booking.vipTierBadge;
+        vipBadgeEl.classList.remove('hidden');
+      } else {
+        vipBadgeEl.classList.add('hidden');
+      }
+
+      document.getElementById('boarding-pass-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBoardingPassModal() {
+      document.getElementById('boarding-pass-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function copyBookingCode() {
+      const code = document.getElementById('bp-code').textContent;
+      const tempInput = document.createElement('input');
+      tempInput.value = code;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast(`已複製訂位代號：${code}`, 'success');
+    }
+
+    // 11. 「我的預約」管理功能
+    function updateBookingBadge() {
+      const badge = document.getElementById('booking-badge');
+      if (myBookings.length > 0) {
+        badge.textContent = myBookings.length;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    function openMyBookingsModal() {
+      renderMyBookingsList();
+      document.getElementById('my-bookings-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMyBookingsModal() {
+      document.getElementById('my-bookings-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function renderMyBookingsList() {
+      const container = document.getElementById('my-bookings-list');
+
+      if (myBookings.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 space-y-3">
+            <i class="fa-solid fa-train-tram text-4xl text-champagne/40"></i>
+            <p class="font-serif text-lg text-ivory">目前尚無尊榮列車預約紀錄</p>
+            <p class="text-xs text-ivoryMuted">立即選擇心儀路線與包廂，開啟您的頂級鐵道假期。</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = myBookings.map((b, idx) => `
+        <div class="p-5 rounded-2xl bg-obsidian border border-champagne/35 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2.5">
+              <span class="px-2.5 py-0.5 rounded bg-champagne/20 border border-champagne text-champagne font-mono text-xs font-bold">${b.id}</span>
+              <span class="font-serif text-base text-goldLight font-bold">${b.origin} → ${b.destination}</span>
+              <span class="text-xs text-ivoryMuted">(${b.date})</span>
+            </div>
+            <p class="text-xs text-ivory">
+              ${b.trainCode} ${b.trainName}・${b.cabinLabel}・席次：<strong class="text-champagne font-mono">${b.seats.join(', ')}</strong>
+            </p>
+            <p class="text-xs text-ivoryMuted">貴賓：${b.guestName}｜總額：NT$ ${b.totalPrice.toLocaleString()}</p>
+          </div>
+
+          <div class="flex items-center gap-2.5 self-end sm:self-center">
+            <button onclick='viewStoredPass(${idx})' class="px-4 py-2 rounded-xl bg-champagne text-obsidian font-bold text-xs hover:brightness-110 transition">
+              檢視乘車證
+            </button>
+            <button onclick="cancelBooking(${idx})" class="px-3.5 py-2 rounded-xl border border-rose-500/40 text-rose-300 hover:bg-rose-500/20 text-xs transition">
+              取消預訂
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function viewStoredPass(index) {
+      closeMyBookingsModal();
+      openBoardingPassModal(myBookings[index]);
+    }
+
+    function cancelBooking(index) {
+      const removed = myBookings.splice(index, 1)[0];
+      // 釋放座位回列車模板
+      const templateObj = TRAIN_TEMPLATES.find(t => t.code === removed.trainCode);
+      if (templateObj) {
+        templateObj.occupiedSeats = templateObj.occupiedSeats.filter(s => !removed.seats.includes(s));
+      }
+      try {
+        localStorage.setItem('aurora_royal_bookings', JSON.stringify(myBookings));
+      } catch (err) {}
+
+      updateBookingBadge();
+      renderMyBookingsList();
+      renderTrainResults();
+      showToast(`已取消訂單 ${removed.id}，席次已釋出。`);
+    }
+
+    // 行動裝置選單切換
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // ==================== 12. VIP 會員登入、註冊與會籍購買系統 ====================
+    function saveUserToStorage() {
+      try {
+        if (currentUser) {
+          localStorage.setItem('aurora_royal_user', JSON.stringify(currentUser));
+        } else {
+          localStorage.removeItem('aurora_royal_user');
+        }
+      } catch (e) {}
+    }
+
+    function updateMemberNavbarUI() {
+      const loginBtn = document.getElementById('nav-login-btn');
+      const memberBtn = document.getElementById('nav-member-btn');
+      const tierPill = document.getElementById('nav-tier-pill');
+      const nameEl = document.getElementById('nav-member-name');
+      const milesEl = document.getElementById('nav-member-miles');
+
+      if (!currentUser) {
+        loginBtn.classList.remove('hidden');
+        memberBtn.classList.add('hidden');
+        return;
+      }
+
+      const tier = MEMBERSHIP_TIERS[currentUser.tier] || MEMBERSHIP_TIERS.STANDARD;
+      loginBtn.classList.add('hidden');
+      memberBtn.classList.remove('hidden');
+
+      tierPill.textContent = tier.badge;
+      nameEl.textContent = currentUser.name;
+      milesEl.textContent = `${(currentUser.miles || 0).toLocaleString()} mi`;
+
+      // 依會籍調整徽章配色
+      if (tier.code === 'ROYAL_BLACK') {
+        tierPill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-champagne text-obsidian';
+      } else if (tier.code === 'PLATINUM') {
+        tierPill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-slate-200 text-slate-900';
+      } else if (tier.code === 'EMERALD') {
+        tierPill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-400 text-obsidian';
+      } else {
+        tierPill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-ivory/20 text-ivory';
+      }
+    }
+
+    function openAuthModal(tab = 'login') {
+      switchAuthTab(tab);
+      document.getElementById('auth-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.add('hidden');
+      if (document.getElementById('seat-modal').classList.contains('hidden')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById('login-form');
+      const regForm = document.getElementById('register-form');
+      const tabLogin = document.getElementById('tab-login-btn');
+      const tabReg = document.getElementById('tab-register-btn');
+      const titleEl = document.getElementById('auth-modal-title');
+
+      if (tab === 'login') {
+        loginForm.classList.remove('hidden');
+        regForm.classList.add('hidden');
+        tabLogin.className = 'py-2 rounded-lg text-xs font-bold tracking-wider bg-champagne text-obsidian transition';
+        tabReg.className = 'py-2 rounded-lg text-xs font-bold tracking-wider text-ivoryMuted hover:text-ivory transition';
+        titleEl.textContent = '寰宇尊榮會籍登入';
+      } else {
+        loginForm.classList.add('hidden');
+        regForm.classList.remove('hidden');
+        tabReg.className = 'py-2 rounded-lg text-xs font-bold tracking-wider bg-champagne text-obsidian transition';
+        tabLogin.className = 'py-2 rounded-lg text-xs font-bold tracking-wider text-ivoryMuted hover:text-ivory transition';
+        titleEl.textContent = '註冊新尊榮貴賓';
+      }
+    }
+
+    // 一鍵體驗預設 VIP 帳號
+    function quickDemoLogin(tierCode) {
+      if (tierCode === 'ROYAL_BLACK') {
+        currentUser = {
+          name: '陳柏翰 先生',
+          email: 'pohan.chen@royal-club.tw',
+          phone: '0988-168-888',
+          tier: 'ROYAL_BLACK',
+          memberNo: 'AR-VIP-880192',
+          expiry: '2027-12-31',
+          miles: 32500
+        };
+      } else {
+        currentUser = {
+          name: '蘇語桐 女士',
+          email: 'yutong.su@platinum.tw',
+          phone: '0966-520-999',
+          tier: 'PLATINUM',
+          memberNo: 'AR-VIP-660845',
+          expiry: '2027-09-30',
+          miles: 14800
+        };
+      }
+
+      saveUserToStorage();
+      updateMemberNavbarUI();
+      closeAuthModal();
+      syncSeatModalWithMember();
+      showToast(`歡迎回來，${currentUser.name}！已啟動 ${MEMBERSHIP_TIERS[currentUser.tier].name} 專屬禮遇。`, 'success');
+    }
+
+    function handleMemberLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const displayName = email.split('@')[0] || '尊榮貴賓';
+
+      currentUser = {
+        name: `${displayName} 貴賓`,
+        email,
+        phone: '0912-888-666',
+        tier: 'PLATINUM',
+        memberNo: 'AR-VIP-' + Math.floor(100000 + Math.random() * 900000),
+        expiry: '2027-11-30',
+        miles: 10000
+      };
+
+      saveUserToStorage();
+      updateMemberNavbarUI();
+      closeAuthModal();
+      syncSeatModalWithMember();
+      showToast(`登入成功！歡迎您，${currentUser.name}（白金尊榮卡 85 折禮遇）。`, 'success');
+    }
+
+    function handleMemberRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+
+      currentUser = {
+        name,
+        email,
+        phone,
+        tier: 'STANDARD',
+        memberNo: 'AR-VIP-' + Math.floor(100000 + Math.random() * 900000),
+        expiry: '2027-12-31',
+        miles: 1000
+      };
+
+      saveUserToStorage();
+      updateMemberNavbarUI();
+      closeAuthModal();
+      syncSeatModalWithMember();
+      showToast(`註冊成功！歡迎 ${name} 加入寰宇尊榮會，已贈送 1,000 哩。`, 'success');
+    }
+
+    function syncSeatModalWithMember() {
+      if (!document.getElementById('seat-modal').classList.contains('hidden') && currentUser) {
+        document.getElementById('guest-name').value = currentUser.name || '';
+        document.getElementById('guest-phone').value = currentUser.phone || '';
+        document.getElementById('guest-email').value = currentUser.email || '';
+        document.getElementById('seat-modal-vip-promo').classList.add('hidden');
+        updateSelectedSummary();
+      }
+    }
+
+    // 會員中心檢視與登出
+    function openMemberCenterModal() {
+      if (!currentUser) return;
+      const tier = MEMBERSHIP_TIERS[currentUser.tier] || MEMBERSHIP_TIERS.STANDARD;
+      const visualCard = document.getElementById('mc-visual-card');
+
+      if (tier.code === 'ROYAL_BLACK') {
+        visualCard.className = 'card-royal-black rounded-2xl p-6 relative overflow-hidden';
+      } else if (tier.code === 'PLATINUM') {
+        visualCard.className = 'card-platinum rounded-2xl p-6 relative overflow-hidden';
+      } else {
+        visualCard.className = 'card-emerald rounded-2xl p-6 relative overflow-hidden';
+      }
+
+      document.getElementById('mc-tier-title').textContent = `${tier.badge} ${tier.name}`;
+      document.getElementById('mc-holder-name').textContent = currentUser.name;
+      document.getElementById('mc-member-no').textContent = `NO. ${currentUser.memberNo}`;
+      document.getElementById('mc-expiry').textContent = currentUser.expiry;
+      document.getElementById('mc-discount-text').textContent = tier.discountLabel;
+      document.getElementById('mc-miles-text').textContent = (currentUser.miles || 0).toLocaleString();
+      document.getElementById('mc-lounge-text').textContent = tier.loungeText;
+
+      document.getElementById('member-center-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMemberCenterModal() {
+      document.getElementById('member-center-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function handleLogout() {
+      currentUser = null;
+      saveUserToStorage();
+      updateMemberNavbarUI();
+      closeMemberCenterModal();
+      showToast('您已安全登出貴賓帳戶。');
+    }
+
+    // 購買 / 升級尊榮會籍流程
+    function openMembershipCheckout(tierCode) {
+      const tier = MEMBERSHIP_TIERS[tierCode];
+      if (!tier) return;
+      pendingCheckoutTier = tier;
+
+      document.getElementById('checkout-tier-badge').textContent = `${tier.badge} TIER`;
+      document.getElementById('checkout-tier-name').textContent = `${tier.name}（一年期尊榮會籍）`;
+      document.getElementById('checkout-tier-perk').textContent = tier.perkSummary;
+      document.getElementById('checkout-tier-price').textContent = `NT$ ${tier.price.toLocaleString()}`;
+
+      if (currentUser) {
+        document.getElementById('mc-buy-name').value = currentUser.name || '';
+        document.getElementById('mc-buy-email').value = currentUser.email || '';
+      }
+
+      document.getElementById('membership-checkout-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMembershipCheckout() {
+      document.getElementById('membership-checkout-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function completeMembershipPurchase(e) {
+      e.preventDefault();
+      if (!pendingCheckoutTier) return;
+
+      const buyerName = document.getElementById('mc-buy-name').value.trim();
+      const buyerEmail = document.getElementById('mc-buy-email').value.trim();
+
+      if (currentUser) {
+        currentUser.name = buyerName;
+        currentUser.email = buyerEmail;
+        currentUser.tier = pendingCheckoutTier.code;
+        currentUser.miles = (currentUser.miles || 0) + pendingCheckoutTier.bonusMiles;
+        currentUser.expiry = '2027-12-31';
+      } else {
+        currentUser = {
+          name: buyerName,
+          email: buyerEmail,
+          phone: '0912-888-999',
+          tier: pendingCheckoutTier.code,
+          memberNo: 'AR-VIP-' + Math.floor(100000 + Math.random() * 900000),
+          expiry: '2027-12-31',
+          miles: pendingCheckoutTier.bonusMiles
+        };
+      }
+
+      saveUserToStorage();
+      updateMemberNavbarUI();
+      closeMembershipCheckout();
+      showToast(`恭喜開通「${pendingCheckoutTier.name}」！已贈送 ${pendingCheckoutTier.bonusMiles.toLocaleString()} 點里程並啟用 ${pendingCheckoutTier.discountLabel}。`, 'success');
+    }
+  </script>
+</body>
+</html>
